@@ -1,8 +1,15 @@
+import 'package:admission2app/screens/signup.dart';
+import 'package:admission2app/widgets/haveaccount.dart';
+import 'package:admission2app/widgets/mybutton.dart';
+import 'package:admission2app/widgets/mypasswordtextformfield.dart';
+import 'package:admission2app/widgets/mytextformfield.dart';
+import 'package:admission2app/widgets/toptitle.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
   TextEditingController email = TextEditingController();
-  void valiation(context) {
+  final GlobalKey<ScaffoldState> scaffold = GlobalKey<ScaffoldState>();
+  void validation(context) {
     if (email.text.isEmpty && password.text.isEmpty) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Both Field Required")));
@@ -10,21 +17,21 @@ class Login extends StatelessWidget {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text("Email is Required")));
     } else if (password.text.isEmpty) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Password is Required")));
+      ScaffoldMessenger.of(context);
+      // .showSnackBar(SnackBar(content: Text("Password is Required")));
     }
   }
 
-  final GlobalKey<ScaffoldState> scaffold = GlobalKey<ScaffoldState>();
   TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        key: scaffold,
+        // key: scaffold,
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -35,107 +42,49 @@ class Login extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Container(
-                  height: 100,
-                  width: 450,
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                  color: Colors.blueGrey,
-                  child: Column(
-                    children: [
-                      Text(
-                        "Login",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        "Welcome Back !",
-                        style: TextStyle(
-                          fontSize: 15,
-                          //fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                TopTitle(
+                    title: "Welcome To", subTitle: "LU Admission Assistance"),
                 Center(
                   child: Container(
-                    height: 250,
+                    height: 200,
                     width: 380,
                     // color: Colors.amberAccent,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextFormField(
+                        MyTextFormField(
+                          title: "Email",
                           controller: email,
-                          decoration: InputDecoration(
-                              fillColor: Colors.blueGrey[100],
-                              filled: true,
-                              hintText: "Email",
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                                borderSide: BorderSide.none,
-                              )),
                         ),
                         SizedBox(
                           height: 10,
                         ),
-                        TextFormField(
-                          controller: password,
-                          obscureText: true,
-                          decoration: InputDecoration(
-                              fillColor: Colors.blueGrey[100],
-                              filled: true,
-                              hintText: "Password",
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                                borderSide: BorderSide.none,
-                              )),
-                        ),
+                        MyPasswordTextFormField(
+                            title: "Password", controller: password),
                       ],
                     ),
                   ),
                 ),
-                Container(
-                  height: 50,
-                  width: 100,
-                  child: ElevatedButton(
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    onPressed: () {
-                      valiation(context);
-                    },
-                  ),
+                MyButton(
+                  name: "Login",
+                  onPressed: () {
+                    //validation(context);
+                  },
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Create an Account ?",
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                    Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 20,
-                      ),
-                    )
-                  ],
-                )
+                HaveAccount(
+                  title: "Create an account ?",
+                  subtitle: " SignUp",
+                  // onTap: () {
+                  //   Navigator.of(context).pushReplacement(
+                  //     MaterialPageRoute(
+                  //       builder: (ctx) => SignUp(),
+                  //     ),
+                  //   );
+                  // },
+                ),
               ],
             ),
           ),

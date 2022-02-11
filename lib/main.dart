@@ -1,4 +1,5 @@
 import 'package:admission2app/screens/login.dart';
+import 'package:admission2app/screens/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blueGrey,
       ),
-      home: Login(),
+      home: SignUp(),
     );
   }
 }
