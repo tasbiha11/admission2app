@@ -45,18 +45,22 @@ class _SignUpState extends State<SignUp> {
                 ],
               ),
             ),
-            MyButton(name: "Sign Up", onPressed: () {}),
+            MyButton(
+                name: "Sign Up",
+                onPressed: () {
+                  validation();
+                }),
             SizedBox(
               height: 10,
             ),
             HaveAccount(
-                // onTap: () {
-                //   Navigator.of(context).pushReplacement(
-                //     MaterialPageRoute(
-                //       builder: (ctx) => Login(),
-                //     ),
-                //   );
-                // },
+                onTap: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (ctx) => Login(),
+                    ),
+                  );
+                },
                 subtitle: " Login",
                 title: "Already have ane Account")
           ],
@@ -64,4 +68,6 @@ class _SignUpState extends State<SignUp> {
       ),
     );
   }
+
+  void validation() {}
 }

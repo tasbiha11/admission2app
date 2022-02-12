@@ -10,16 +10,18 @@ class Login extends StatelessWidget {
   TextEditingController email = TextEditingController();
   final GlobalKey<ScaffoldState> scaffold = GlobalKey<ScaffoldState>();
   void validation(context) {
-    if (email.text.isEmpty && password.text.isEmpty) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Both Field Required")));
-    } else if (email.text.isEmpty) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Email is Required")));
-    } else if (password.text.isEmpty) {
-      ScaffoldMessenger.of(context);
-      // .showSnackBar(SnackBar(content: Text("Password is Required")));
-    }
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      if (email.text.isEmpty && password.text.isEmpty) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Both Field Required")));
+      } else if (email.text.isEmpty) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Email is Required")));
+      } else if (password.text.isEmpty) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Password is Required")));
+      }
+    });
   }
 
   TextEditingController password = TextEditingController();
@@ -27,7 +29,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        // key: scaffold,
+        key: scaffold,
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Container(
@@ -68,7 +70,7 @@ class Login extends StatelessWidget {
                 MyButton(
                   name: "Login",
                   onPressed: () {
-                    //validation(context);
+                    validation(context);
                   },
                 ),
                 SizedBox(
@@ -77,13 +79,14 @@ class Login extends StatelessWidget {
                 HaveAccount(
                   title: "Create an account ?",
                   subtitle: " SignUp",
-                  // onTap: () {
-                  //   Navigator.of(context).pushReplacement(
-                  //     MaterialPageRoute(
-                  //       builder: (ctx) => SignUp(),
-                  //     ),
-                  //   );
-                  // },
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (ctx) => SignUp(),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class HaveAccount extends StatelessWidget {
   final String title, subtitle;
-  //final Function onTap;
-  HaveAccount({required this.subtitle, required this.title});
+  final VoidCallback onTap;
+  HaveAccount(
+      {required this.onTap, required this.subtitle, required this.title});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,7 +17,9 @@ class HaveAccount extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          //onTap: onTap(),
+          onTap: () {
+            onTap();
+          },
           child: Text(
             subtitle,
             style: TextStyle(
