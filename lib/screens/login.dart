@@ -1,14 +1,69 @@
+import 'package:admission2app/screens/homepage.dart';
 import 'package:admission2app/screens/signup.dart';
 import 'package:admission2app/widgets/haveaccount.dart';
 import 'package:admission2app/widgets/mybutton.dart';
 import 'package:admission2app/widgets/mypasswordtextformfield.dart';
 import 'package:admission2app/widgets/mytextformfield.dart';
 import 'package:admission2app/widgets/toptitle.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool isLoading = false;
+
+  late UserCredential authResult;
+
+  void submit() async {
+    setState(() {
+      isLoading = true;
+    });
+    try {
+      authResult = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email.text, password: password.text);
+    } on PlatformException catch (e) {
+      String message = "Check Internet Connection";
+      if (e.message != null) {
+        message = e.message.toString();
+      }
+      scaffold.currentState!.showSnackBar(
+        SnackBar(
+          content: Text(message),
+        ),
+      );
+      setState(() {
+        isLoading = false;
+      });
+    } catch (e) {
+      scaffold.currentState!.showSnackBar(
+        SnackBar(
+          content: Text(e.toString()),
+        ),
+      );
+      setState(() {
+        isLoading = false;
+      });
+    }
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (ctx) => HomePage(),
+      ),
+    );
+    setState(() {
+      isLoading = false;
+    });
+  }
+
   TextEditingController email = TextEditingController();
+
   final GlobalKey<ScaffoldState> scaffold = GlobalKey<ScaffoldState>();
+
   void validation(context) {
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       if (email.text.isEmpty && password.text.isEmpty) {
@@ -22,9 +77,11 @@ class Login extends StatelessWidget {
             .showSnackBar(SnackBar(content: Text("Password is Required")));
       }
     });
+    //submit();
   }
 
   TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
