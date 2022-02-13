@@ -16,7 +16,9 @@ class MyButton extends StatelessWidget {
           style: TextStyle(
               color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
         ),
-        onPressed: onPressed(),
+        onPressed: () {
+          onPressed();
+        },
       ),
     );
   }

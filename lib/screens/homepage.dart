@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
                   ),
                 );
               },
-              icon: Icon(Icons.exit_to_app))
+              icon: Icon(Icons.exit_to_app_rounded))
         ],
         title: Text("Home"),
       ),

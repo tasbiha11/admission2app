@@ -28,21 +28,43 @@ class _SignUpState extends State<SignUp> {
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
   static RegExp regExp = new RegExp(p);
   bool isLoading = false;
-  late UserCredential authResult;
+
   void submit() async {
     setState(() {
       isLoading = true;
     });
     try {
-      authResult = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email.text, password: password.text);
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: email.text, password: password.text);
+      if (userCredential.user != null) {
+        await FirebaseFirestore.instance
+            .collection("UserData")
+            .doc(userCredential.user!.uid)
+            .set({
+          "UserName": name.text,
+          "UserEmail": email.text,
+          "UserID": userCredential.user!.uid,
+          "UserIDnumber": idnumber.text,
+          "UserPhone": phone.text,
+          "UserHSC": hsc.text,
+        });
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (ctx) => HomePage(),
+          ),
+        );
+      }
     } on PlatformException catch (e) {
       String message = "Check Internet Connection";
       if (e.message != null) {
         message = e.message.toString();
       }
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(message)));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+        ),
+      );
       setState(() {
         isLoading = false;
       });
@@ -50,25 +72,13 @@ class _SignUpState extends State<SignUp> {
       setState(() {
         isLoading = false;
       });
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(e.toString())));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.toString()),
+        ),
+      );
     }
-    await FirebaseFirestore.instance
-        .collection("UserData")
-        .doc(authResult.user!.uid)
-        .set({
-      "UserName": name.text,
-      "UserEmail": email.text,
-      "UserID": authResult.user!.uid,
-      "UserIDnumber": idnumber.text,
-      "UserPhone": phone.text,
-      "UserHSC": hsc.text,
-    });
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (ctx) => HomePage(),
-      ),
-    );
+
     setState(() {
       isLoading = false;
     });
@@ -95,51 +105,57 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffold,
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 1),
-        child: Column(
-          //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: ListView(
           children: [
-            TopTitle(title: "SignUp", subTitle: "For LU Admission Assistance"),
-            Container(
-              height: 400,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  MyTextFormField(controller: name, title: "Name"),
-                  MyTextFormField(controller: idnumber, title: "ID"),
-                  MyTextFormField(controller: email, title: "Email"),
-                  MyTextFormField(controller: phone, title: "Phone"),
-                  MyTextFormField(controller: hsc, title: "HSC"),
-                  MyPasswordTextFormField(
-                      controller: password, title: "Password"),
-                ],
-              ),
-            ),
-            isLoading == false
-                ? MyButton(
-                    name: "Sign Up",
-                    onPressed: () {
-                      validation(context);
-                    },
-                  )
-                : Center(
-                    child: CircularProgressIndicator(color: Colors.blueGrey),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TopTitle(
+                    title: "SignUp", subTitle: "For LU Admission Assistance"),
+                Container(
+                  height: 400,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      MyTextFormField(controller: name, title: "Name"),
+                      MyTextFormField(controller: idnumber, title: "ID"),
+                      MyTextFormField(controller: email, title: "Email"),
+                      MyTextFormField(controller: phone, title: "Phone"),
+                      MyTextFormField(controller: hsc, title: "HSC"),
+                      MyPasswordTextFormField(
+                          controller: password, title: "Password"),
+                    ],
                   ),
-            SizedBox(
-              height: 10,
+                ),
+                isLoading == false
+                    ? MyButton(
+                        name: "Sign Up",
+                        onPressed: () {
+                          validation(context);
+                        },
+                      )
+                    : Center(
+                        child:
+                            CircularProgressIndicator(color: Colors.blueGrey),
+                      ),
+                SizedBox(
+                  height: 10,
+                ),
+                HaveAccount(
+                    onTap: () {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(
+                          builder: (ctx) => Login(),
+                        ),
+                      );
+                    },
+                    subtitle: " Login",
+                    title: "Already have an Account")
+              ],
             ),
-            HaveAccount(
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (ctx) => Login(),
-                    ),
-                  );
-                },
-                subtitle: " Login",
-                title: "Already have an Account")
           ],
         ),
       ),

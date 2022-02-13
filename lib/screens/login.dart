@@ -21,9 +21,8 @@ class _LoginState extends State<Login> {
   late UserCredential authResult;
 
   void submit() async {
-    setState(() {
-      isLoading = true;
-    });
+    isLoading = true;
+
     try {
       authResult = await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: email.text, password: password.text);
@@ -77,7 +76,7 @@ class _LoginState extends State<Login> {
             .showSnackBar(SnackBar(content: Text("Password is Required")));
       }
     });
-    //submit();
+    submit();
   }
 
   TextEditingController password = TextEditingController();
