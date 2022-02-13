@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SignUp extends StatefulWidget {
-  //final GlobalKey<ScaffoldState> scaffold = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> scaffold = GlobalKey<ScaffoldState>();
   @override
   State<SignUp> createState() => _SignUpState();
 }
@@ -24,6 +24,9 @@ class _SignUpState extends State<SignUp> {
   final TextEditingController hsc = TextEditingController();
   final TextEditingController password = TextEditingController();
   final GlobalKey<ScaffoldState> scaffold = GlobalKey<ScaffoldState>();
+  static String p =
+      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+  static RegExp regExp = new RegExp(p);
   bool isLoading = false;
   late UserCredential authResult;
   void submit() async {
@@ -38,11 +41,8 @@ class _SignUpState extends State<SignUp> {
       if (e.message != null) {
         message = e.message.toString();
       }
-      scaffold.currentState!.showSnackBar(
-        SnackBar(
-          content: Text(message),
-        ),
-      );
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(message)));
       setState(() {
         isLoading = false;
       });
@@ -50,11 +50,8 @@ class _SignUpState extends State<SignUp> {
       setState(() {
         isLoading = false;
       });
-      scaffold.currentState!.showSnackBar(
-        SnackBar(
-          content: Text(e.toString()),
-        ),
-      );
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.toString())));
     }
     await FirebaseFirestore.instance
         .collection("UserData")
@@ -74,6 +71,23 @@ class _SignUpState extends State<SignUp> {
     );
     setState(() {
       isLoading = false;
+    });
+  }
+
+  void validation(context) {
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      if (email.text.isEmpty && password.text.isEmpty) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("All Field Required")));
+      } else if (email.text.isEmpty) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Email is Required")));
+      } else if (password.text.isEmpty) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("Password is Required")));
+      } else {
+        submit();
+      }
     });
   }
 
@@ -107,7 +121,7 @@ class _SignUpState extends State<SignUp> {
                 ? MyButton(
                     name: "Sign Up",
                     onPressed: () {
-                      validation();
+                      validation(context);
                     },
                   )
                 : Center(
@@ -125,12 +139,10 @@ class _SignUpState extends State<SignUp> {
                   );
                 },
                 subtitle: " Login",
-                title: "Already have ane Account")
+                title: "Already have an Account")
           ],
         ),
       ),
     );
   }
-
-  void validation() {}
 }

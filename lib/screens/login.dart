@@ -68,7 +68,7 @@ class _LoginState extends State<Login> {
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       if (email.text.isEmpty && password.text.isEmpty) {
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("Both Field Required")));
+            .showSnackBar(SnackBar(content: Text("All Field Required")));
       } else if (email.text.isEmpty) {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text("Email is Required")));
