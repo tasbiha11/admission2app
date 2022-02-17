@@ -1,4 +1,6 @@
+import 'package:admission2app/screens/aboutus.dart';
 import 'package:admission2app/screens/admissionpage.dart';
+import 'package:admission2app/screens/departments.dart';
 import 'package:admission2app/screens/login.dart';
 import 'package:admission2app/screens/semester_registration_page.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +9,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 class HomePage extends StatelessWidget {
   Widget _buildSingleCategory({String? image}) {
     return Card(
-      //color: Colors.pink,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       child: Container(
         height: 200,
@@ -17,7 +18,6 @@ class HomePage extends StatelessWidget {
           children: [
             Container(
               height: 180,
-              //color: Colors.black,
               width: 240,
               child: Column(
                 children: [
@@ -29,7 +29,6 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // Text("data")
                 ],
               ),
             )
@@ -80,18 +79,26 @@ class HomePage extends StatelessWidget {
                 },
                 leading: Icon(Icons.home, size: 32),
                 title: Text(
-                  "Home Page",
+                  "Home",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.verified_user, size: 32),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Departments()));
+                },
+                leading: Icon(Icons.school, size: 32),
                 title: Text(
-                  "Profile",
+                  "Departments",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
               ListTile(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AboutUs()));
+                },
                 leading: Icon(Icons.info, size: 32),
                 title: Text(
                   "About Us",
@@ -123,32 +130,6 @@ class HomePage extends StatelessWidget {
                   child: Container(
                     child: Column(
                       children: [
-                        // Container(
-                        //   margin:
-                        //       EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                        //   height: 20,
-                        //   child: Row(
-                        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        //     children: [
-                        //       IconButton(
-                        //         icon: Icon(
-                        //           Icons.sort,
-                        //           size: 40,
-                        //           color: Colors.white,
-                        //         ),
-                        //         onPressed: () {},
-                        //       ),
-                        //       IconButton(
-                        //         icon: Icon(
-                        //           Icons.email,
-                        //           size: 40,
-                        //           color: Colors.white,
-                        //         ),
-                        //         onPressed: () {},
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
                         Container(
                             child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -207,7 +188,6 @@ class HomePage extends StatelessWidget {
                                 scrollDirection: Axis.horizontal,
                                 child: Container(
                                   height: 200,
-                                  //width: 800,
                                   child: Row(
                                     children: [
                                       _buildSingleCategory(
@@ -226,12 +206,6 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        // SizedBox(
-                        //   child: Text(
-                        //     "Choose Your Department For Semester Registration",
-                        //     style: TextStyle(fontWeight: FontWeight.bold),
-                        //   ),
-                        // ),
                         SizedBox(
                           height: 20,
                         ),
