@@ -2,6 +2,7 @@ import 'package:admission2app/screens/aboutus.dart';
 import 'package:admission2app/screens/admissionpage.dart';
 import 'package:admission2app/screens/departments.dart';
 import 'package:admission2app/screens/login.dart';
+import 'package:admission2app/screens/rewardpoints.dart';
 import 'package:admission2app/screens/semester_registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -86,11 +87,11 @@ class HomePage extends StatelessWidget {
               ListTile(
                 onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Departments()));
+                      MaterialPageRoute(builder: (context) => RewardPoints()));
                 },
-                leading: Icon(Icons.school, size: 32),
+                leading: Icon(Icons.confirmation_number, size: 32),
                 title: Text(
-                  "Departments",
+                  "Reward Points",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
