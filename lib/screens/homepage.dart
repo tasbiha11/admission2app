@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       child: Container(
-        height: 200,
+        height: 180,
         width: 250,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    height: 180,
+                    height: 150,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage("images/$image.png"),
@@ -180,7 +180,6 @@ class HomePage extends StatelessWidget {
                         Container(
                           width: double.infinity,
                           height: 200,
-                          //color: Colors.black,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -304,9 +303,39 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
+                Container(
+                  color: Colors.blueGrey,
+                  height: 60,
+                  width: double.infinity,
+                  child: Column(
+                    children: [
+                      Text(
+                        "Contact Us",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        "Ragibnagar, South Surma, Sylhet-3112",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      // Text(
+                      //   "Phone: 01313084499.",
+                      //   style: TextStyle(color: Colors.white),
+                      // ),
+                      Text(
+                        "Email: info@lus.ac.bd",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
         ));
   }
 }
+
+//Leading University
+// Ragibnagar, South Surma, Sylhet-3112
+// Phone: 01313084499.
+// Email: info@lus.ac.bd

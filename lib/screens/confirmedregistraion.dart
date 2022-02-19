@@ -17,10 +17,7 @@ class _ConfirmedRegistrationState extends State<ConfirmedRegistration> {
       ),
       body: Container(
           alignment: Alignment.center,
-          //padding: EdgeInsets.only(top: 150),
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
                 height: 10,
@@ -28,6 +25,9 @@ class _ConfirmedRegistrationState extends State<ConfirmedRegistration> {
               Image.asset(
                 "images/Leading_University_Logo.png",
                 width: 150,
+              ),
+              SizedBox(
+                height: 20,
               ),
               Text(
                 "Congratulations !",

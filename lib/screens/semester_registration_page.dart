@@ -25,15 +25,12 @@ class SemesterRegistration extends StatelessWidget {
             child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Fill the Form for Semester Registration",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              Image.asset(
+                "images/Leading_University_Logo.png",
+                width: 150,
               ),
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               TextFormField(
                 decoration: InputDecoration(
@@ -65,49 +62,51 @@ class SemesterRegistration extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blueGrey),
-                    borderRadius: BorderRadius.circular(5),
+              Container(
+                height: 50,
+                width: double.infinity,
+                color: Colors.blueGrey[100],
+                child: Center(
+                  child: DropdownButton(
+                    value: "1st Semester",
+                    items: [
+                      DropdownMenuItem(
+                        child: Text(
+                          "1st Semester",
+                        ),
+                        value: "1st Semester",
+                      ),
+                      DropdownMenuItem(
+                        child: Text("2nd Semester"),
+                        value: "2nd Semester",
+                      ),
+                      DropdownMenuItem(
+                        child: Text("4th Semester"),
+                        value: "4th Semester",
+                      ),
+                      DropdownMenuItem(
+                        child: Text("5th Semester"),
+                        value: "5th Semester",
+                      ),
+                      DropdownMenuItem(
+                        child: Text("6th Semester"),
+                        value: "6th Semester",
+                      ),
+                      DropdownMenuItem(
+                        child: Text("7th Semester"),
+                        value: "7th Semester",
+                      ),
+                      DropdownMenuItem(
+                        child: Text("8th Semester"),
+                        value: "8th Semester",
+                      ),
+                    ],
+                    onChanged: (value) {
+                      print("changed");
+                    },
                   ),
-                  labelText: "Semester",
-                  labelStyle: TextStyle(color: Colors.blueGrey),
-                  filled: true,
-                  fillColor: Colors.blueGrey[100],
                 ),
               ),
-
-              // DropdownButton<String>(
-              //   value: selectedItem,
-              //   icon: const Icon(Icons.arrow_downward_outlined),
-              //   elevation: 16,
-              //   style: const TextStyle(color: Colors.blueGrey, fontSize: 20),
-              //   underline: Container(
-              //     height: 2,
-              //     color: Colors.blueGrey,
-              //   ),
-              //   onChanged: (String? newValue) {
-              //     setState(() {
-              //       selectedItem = newValue!;
-              //     });
-              //   },
-              //   items: <String>[
-              //     '1st Semester',
-              //     '2nd Semester',
-              //     '3rd Semester',
-              //     '4th Semester',
-              //     '5th Semester',
-              //     '6th Semester',
-              //     '7ht Semester',
-              //     '8th Semester',
-              //   ].map<DropdownMenuItem<String>>((String value) {
-              //     return DropdownMenuItem<String>(
-              //       value: value,
-              //       child: Text(value),
-              //     );
-              //   }).toList(),
-              // ),
               SizedBox(
                 height: 10,
               ),

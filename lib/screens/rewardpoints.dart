@@ -16,13 +16,27 @@ class _RewardPointsState extends State<RewardPoints> {
       ),
       body: Container(
         alignment: Alignment.center,
-        child: Text(
-          "  Total Reward Points: 10  ",
-          style: TextStyle(
-              fontSize: 30,
-              backgroundColor: Colors.green,
-              color: Colors.white,
-              fontWeight: FontWeight.bold),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 20,
+            ),
+            Image.asset(
+              "images/Leading_University_Logo.png",
+              width: 150,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+              "  Total Reward Points: 10  ",
+              style: TextStyle(
+                  fontSize: 30,
+                  backgroundColor: Colors.green,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
       ),
     );
