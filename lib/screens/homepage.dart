@@ -1,11 +1,10 @@
 import 'package:admission2app/screens/aboutus.dart';
 import 'package:admission2app/screens/admissionpage.dart';
-import 'package:admission2app/screens/departments.dart';
 import 'package:admission2app/screens/login.dart';
+import 'package:admission2app/screens/paymentsystem.dart';
 import 'package:admission2app/screens/rewardpoints.dart';
 import 'package:admission2app/screens/semester_registration_page.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatelessWidget {
   Widget _buildSingleCategory({String? image}) {
@@ -81,7 +80,7 @@ class HomePage extends StatelessWidget {
                 leading: Icon(Icons.home, size: 32),
                 title: Text(
                   "Home",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
               ListTile(
@@ -92,7 +91,20 @@ class HomePage extends StatelessWidget {
                 leading: Icon(Icons.confirmation_number, size: 32),
                 title: Text(
                   "Reward Points",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PaymentProcess()));
+                },
+                leading: Icon(Icons.payment_outlined, size: 32),
+                title: Text(
+                  "Payment Guideline",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
               ListTile(
@@ -103,7 +115,7 @@ class HomePage extends StatelessWidget {
                 leading: Icon(Icons.info, size: 32),
                 title: Text(
                   "About Us",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
               Divider(
@@ -117,7 +129,7 @@ class HomePage extends StatelessWidget {
                 leading: Icon(Icons.logout, size: 32),
                 title: Text(
                   "Log Out",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
             ],
@@ -136,27 +148,36 @@ class HomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              padding: EdgeInsets.symmetric(horizontal: 50),
                               height: 100,
                               child: Row(
                                 children: [
-                                  CircleAvatar(
-                                    maxRadius: 30,
-                                    backgroundImage:
-                                        AssetImage("images/verified_user.png"),
+                                  // CircleAvatar(
+                                  //   maxRadius: 30,
+                                  //   backgroundImage:
+                                  //       AssetImage("images/verified_user.png"),
+                                  // ),
+                                  // SizedBox(
+                                  //   height: 5,
+                                  // ),
+                                  Image.asset(
+                                    "images/Leading_University_Logo.png",
+                                    width: 80,
                                   ),
                                   Container(
-                                    padding: EdgeInsets.symmetric(vertical: 10),
-                                    height: 70,
-                                    width: 150,
+                                    // padding: EdgeInsets.symmetric(
+                                    //     vertical: 10),
+                                    // padding: EdgeInsets.all(10),
+                                    height: 50,
+                                    width: 200,
                                     //color: Colors.black,
                                     child: ListTile(
                                       title: Text(
-                                        "Reference No: 101201",
+                                        "Leading University",
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 18),
+                                            fontSize: 20),
                                       ),
                                     ),
                                   ),
@@ -170,10 +191,13 @@ class HomePage extends StatelessWidget {
                     color: Theme.of(context).primaryColor,
                   ),
                 ),
+                SizedBox(
+                  height: 10,
+                ),
                 Expanded(
                   flex: 4,
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 10),
                     color: Colors.white,
                     child: Column(
                       children: [

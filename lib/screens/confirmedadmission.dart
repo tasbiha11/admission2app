@@ -1,3 +1,4 @@
+import 'package:admission2app/screens/rewardpoints.dart';
 import 'package:flutter/material.dart';
 
 class AdmissionConfirmation extends StatefulWidget {
@@ -46,6 +47,23 @@ class _AdmissionConfirmationState extends State<AdmissionConfirmation> {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(
+              height: 100,
+            ),
+            Container(
+              height: 40,
+              width: 235,
+              color: Colors.amber,
+              padding: EdgeInsets.all(10),
+              child: Text(
+                "30 points added to Refferer's ID",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            // Text("Reffer Number: 121051")
           ],
         ),
       ),

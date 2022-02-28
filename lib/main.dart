@@ -21,8 +21,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        // brightness: Brightness.dark,
         primarySwatch: Colors.blueGrey,
       ),
+      // themeMode: ThemeMode.dark,
       home: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
