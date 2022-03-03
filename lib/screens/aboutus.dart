@@ -23,60 +23,51 @@ class AboutUs extends StatelessWidget {
             //color: Colors.black,
           ),
           Container(
-            margin: EdgeInsets.all(5),
-            height: 320,
+            margin: EdgeInsets.all(15),
+            height: 380,
             //color: Colors.black,
             child: Column(
               children: [
+                Icon(Icons.check_box, color: Colors.green),
                 Text(
-                    "The motivation behind developing this app was the struggles of students we had to face every four months in front of the account section and the bank."),
+                  "The motivation behind developing this app was the struggles of students who had to face every four months in front of the account section and the bank.",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                ),
                 Text(""),
+                Icon(Icons.check_box, color: Colors.green),
+                Text(
+                    "We will also add a function of auto generation of confirmation mail about the stages of semester registration",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                Text(""),
+                Icon(Icons.check_box, color: Colors.green),
+                Text(
+                    "Our future works including transaction through Bkash,SSLZ commerce and online banking will bring a revolution to the admission process of our university",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                SizedBox(height: 50),
+                Center(
+                  child: InkWell(
+                    child: Text(
+                      " Click to Visit Our Official Website",
+                      style: TextStyle(color: Colors.blue, fontSize: 15),
+                    ),
+                    onTap: () => launch('https://www.lus.ac.bd/'),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.copyright_rounded),
+                    Text(
+                      "LU Admission Assistant",
+                      style: TextStyle(fontSize: 14),
+                    )
+                  ],
+                ),
               ],
             ),
           ),
-          // SizedBox(
-          //   height: 27,
-          // ),
-          // Container(
-          //   //margin: EdgeInsets.symmetric(horizontal: 5),
-          //   height: 125,
-          //   width: double.infinity,
-          //   color: Colors.blueGrey,
-          //   child: Column(
-          //     //crossAxisAlignment: CrossAxisAlignment.start,
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [
-          //       // Text(
-          //       //   "Contact Us",
-          //       //   style: TextStyle(
-          //       //       color: Colors.white,
-          //       //       fontWeight: FontWeight.bold,
-          //       //       fontSize: 20),
-          //       // ),
-          //       // Text(
-          //       //   "Ragibnagar, South Surma, Sylhet-3112",
-          //       //   style: TextStyle(
-          //       //       color: Colors.white,
-          //       //       fontWeight: FontWeight.bold,
-          //       //       fontSize: 15),
-          //       // ),
-          //       // Text(
-          //       //   "Phone: 01313084499",
-          //       //   style: TextStyle(
-          //       //       color: Colors.white,
-          //       //       fontWeight: FontWeight.bold,
-          //       //       fontSize: 15),
-          //       // ),
-          //       // Text(
-          //       //   "Email: info@lus.ac.bd",
-          //       //   style: TextStyle(
-          //       //       color: Colors.white,
-          //       //       fontWeight: FontWeight.bold,
-          //       //       fontSize: 15),
-          //       // ),
-          //     ],
-          //   ),
-          // ),
         ],
       ),
     );

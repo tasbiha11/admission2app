@@ -69,10 +69,13 @@ class _AdmissionPageState extends State<AdmissionPage> {
                 // ),
                 // Text(
                 //   "Under Graduate Program",
-                //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                //   style: TextStyle(
+                //       fontSize: 20,
+                //       fontWeight: FontWeight.bold,
+                //       color: Colors.blue),
                 // ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _reffererController,
@@ -88,7 +91,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _programNameController,
@@ -104,7 +107,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _applicantNameController,
@@ -120,7 +123,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _fathersNameOccupationController,
@@ -136,7 +139,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _mothersNameOccupationController,
@@ -152,7 +155,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _addressController,
@@ -168,7 +171,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _birthDateController,
@@ -184,7 +187,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _mobileController,
@@ -200,7 +203,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _emailController,
@@ -216,7 +219,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _nationalityController,
@@ -232,7 +235,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _hscRegNoController,
@@ -248,7 +251,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _hscGPAController,
@@ -264,7 +267,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 TextFormField(
                   controller: _sscGPAController,
@@ -279,23 +282,8 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     fillColor: Colors.blueGrey[100],
                   ),
                 ),
-                // SizedBox(
-                //   height: 5,
-                // ),
-                // TextFormField(
-                //   decoration: InputDecoration(
-                //     enabledBorder: OutlineInputBorder(
-                //       borderSide: BorderSide(color: Colors.blueGrey),
-                //       borderRadius: BorderRadius.circular(5),
-                //     ),
-                //     labelText: "Reference No.",
-                //     labelStyle: TextStyle(color: Colors.blueGrey),
-                //     filled: true,
-                //     fillColor: Colors.blueGrey[100],
-                //   ),
-                // ),
                 SizedBox(
-                  height: 5,
+                  height: 4,
                 ),
                 ElevatedButton(
                   onPressed: () {

@@ -59,6 +59,7 @@ class _SignUpState extends State<SignUp> {
       String message = "Check Internet Connection";
       if (e.message != null) {
         message = e.message.toString();
+        print(message);
       }
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
