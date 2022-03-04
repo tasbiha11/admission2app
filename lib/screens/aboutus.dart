@@ -60,7 +60,7 @@ class AboutUs extends StatelessWidget {
                   children: [
                     Icon(Icons.copyright_rounded),
                     Text(
-                      "LU Admission Assistant",
+                      "LU Admission Assistance",
                       style: TextStyle(fontSize: 14),
                     )
                   ],
