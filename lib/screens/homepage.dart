@@ -2,6 +2,7 @@ import 'package:admission2app/screens/aboutus.dart';
 import 'package:admission2app/screens/admissionpage.dart';
 import 'package:admission2app/screens/login.dart';
 import 'package:admission2app/screens/paymentsystem.dart';
+import 'package:admission2app/screens/profile.dart';
 import 'package:admission2app/screens/rewardpoints.dart';
 import 'package:admission2app/screens/semester_registration_page.dart';
 import 'package:flutter/material.dart';
@@ -52,23 +53,47 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Container(
+                    //   height: 80,
+                    //   width: 80,
+                    //   decoration: BoxDecoration(
+                    //       borderRadius: BorderRadius.circular(40),
+                    //       color: Colors.white),
+                    //   child: Center(
+                    //     child: Text("User"),
+                    //   ),
+                    // ),
+                    SizedBox(
+                      height: 35,
+                    ),
                     Container(
-                      height: 80,
-                      width: 80,
+                      //margin: EdgeInsets.only(left: 55),
+                      width: 300,
+                      height: 50,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Colors.white),
-                      child: Center(
-                        child: Text("User"),
+                          //borderRadius: BorderRadius.circular(0),
+                          color: Colors.blueGrey),
+                      child: ListTile(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Profile()));
+                        },
+                        leading: Icon(
+                          Icons.account_box,
+                          size: 50,
+                          color: Colors.white,
+                        ),
+                        title: Text(
+                          "User Profile",
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
                       ),
                     ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "User Logged In",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    )
                   ],
                 ),
               ),

@@ -24,8 +24,16 @@ class _LoginState extends State<Login> {
     isLoading = true;
 
     try {
-      authResult = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: email.text, password: password.text);
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: email.text, password: password.text)
+          .then((value) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (ctx) => HomePage(),
+          ),
+        );
+      });
     } on PlatformException catch (e) {
       String message = "Check Internet Connection";
       if (e.message != null) {
@@ -49,11 +57,7 @@ class _LoginState extends State<Login> {
         isLoading = false;
       });
     }
-    Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (ctx) => HomePage(),
-      ),
-    );
+
     setState(() {
       isLoading = false;
     });

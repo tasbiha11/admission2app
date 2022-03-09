@@ -18,7 +18,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final TextEditingController name = TextEditingController();
-  //final TextEditingController idnumber = TextEditingController();
+
   final TextEditingController email = TextEditingController();
   final TextEditingController phone = TextEditingController();
   final TextEditingController hsc = TextEditingController();
@@ -45,7 +45,6 @@ class _SignUpState extends State<SignUp> {
           "UserName": name.text,
           "UserEmail": email.text,
           "UserID": userCredential.user!.uid,
-          //"UserIDnumber": idnumber.text,
           "UserPhone": phone.text,
           "UserHSC": hsc.text,
         });
@@ -122,7 +121,6 @@ class _SignUpState extends State<SignUp> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       MyTextFormField(controller: name, title: "Name"),
-                      //MyTextFormField(controller: idnumber, title: "ID"),
                       MyTextFormField(controller: email, title: "Email"),
                       MyTextFormField(controller: phone, title: "Phone"),
                       MyTextFormField(controller: hsc, title: "HSC"),

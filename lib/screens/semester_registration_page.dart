@@ -29,6 +29,14 @@ class _SemesterRegistrationState extends State<SemesterRegistration> {
   final _studentIdController = TextEditingController();
   final _sectionController = TextEditingController();
 
+  int _count = 0;
+
+  void _incrementCount() {
+    setState(() {
+      _count = _count = 10;
+    });
+  }
+
   @override
   void dispose() {
     // TODO: implement dispose
