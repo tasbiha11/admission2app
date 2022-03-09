@@ -18,7 +18,6 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final TextEditingController name = TextEditingController();
-
   final TextEditingController email = TextEditingController();
   final TextEditingController phone = TextEditingController();
   final TextEditingController hsc = TextEditingController();
@@ -88,13 +87,22 @@ class _SignUpState extends State<SignUp> {
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       if (email.text.isEmpty && password.text.isEmpty) {
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("All Field Required")));
+            .showSnackBar(SnackBar(content: Text("All Fields Required")));
       } else if (email.text.isEmpty) {
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("Email is Required")));
+            .showSnackBar(SnackBar(content: Text("All Fields Required")));
+      } else if (name.text.isEmpty) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("All Fields Required")));
+      } else if (hsc.text.isEmpty) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("All Fields Required")));
+      } else if (phone.text.isEmpty) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("All Fields Required")));
       } else if (password.text.isEmpty) {
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text("Password is Required")));
+            .showSnackBar(SnackBar(content: Text("All Fields Required")));
       } else {
         submit();
       }
