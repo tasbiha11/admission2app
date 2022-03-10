@@ -21,7 +21,7 @@ class Profile extends StatelessWidget {
                 //height: 300,
                 //margin: EdgeInsets.all(35),
                 child: Container(
-                  margin: EdgeInsets.all(25),
+                  margin: EdgeInsets.all(10),
                   child: Column(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -32,18 +32,17 @@ class Profile extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      // Row(
-                      //   children: [
-                      //     Container(
-                      //       child: Icon(
-                      //         Icons.account_box_outlined,
-                      //         size: 55,
-                      //       ),
-                      //     ),
-                      // //   ],
-                      // ),
+                      Text(
+                        "User Information",
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
                       Row(
                         children: [
+                          Padding(padding: EdgeInsets.only(left: 25)),
                           Text(
                             "Name:  ",
                             style: TextStyle(
@@ -64,6 +63,7 @@ class Profile extends StatelessWidget {
                       ),
                       Row(
                         children: [
+                          Padding(padding: EdgeInsets.only(left: 25)),
                           Text(
                             "Email: ",
                             style: TextStyle(
@@ -82,6 +82,7 @@ class Profile extends StatelessWidget {
                       ),
                       Row(
                         children: [
+                          Padding(padding: EdgeInsets.only(left: 25)),
                           Text(
                             "HSC Year:  ",
                             style: TextStyle(
@@ -100,6 +101,7 @@ class Profile extends StatelessWidget {
                       ),
                       Row(
                         children: [
+                          Padding(padding: EdgeInsets.only(left: 25)),
                           Text(
                             "Phone: ",
                             style: TextStyle(
@@ -120,7 +122,10 @@ class Profile extends StatelessWidget {
             );
           }
           return Column(children: [
-            Text('no data'),
+            Text(
+              'Data Loading !',
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
           ]);
         },
       ),

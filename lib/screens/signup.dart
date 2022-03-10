@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 
 class SignUp extends StatefulWidget {
   final GlobalKey<ScaffoldState> scaffold = GlobalKey<ScaffoldState>();
+
   @override
   State<SignUp> createState() => _SignUpState();
 }
@@ -33,9 +34,12 @@ class _SignUpState extends State<SignUp> {
       isLoading = true;
     });
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-              email: email.text, password: password.text);
+      UserCredential userCredential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email.text,
+        password: password.text,
+      );
+
       if (userCredential.user != null) {
         await FirebaseFirestore.instance
             .collection("UserData")

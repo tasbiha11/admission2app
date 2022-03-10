@@ -46,6 +46,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
     super.dispose();
   }
 
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,24 +57,14 @@ class _AdmissionPageState extends State<AdmissionPage> {
       body: Container(
         margin: EdgeInsets.all(20),
         child: Form(
+          key: _formKey,
           child: SingleChildScrollView(
             child: Column(
               children: [
                 Image.asset(
                   "images/Leading_University_Logo.png",
                   width: 100,
-                  // height: 80,
                 ),
-                // SizedBox(
-                //   height: 5,
-                // ),
-                // Text(
-                //   "Under Graduate Program",
-                //   style: TextStyle(
-                //       fontSize: 20,
-                //       fontWeight: FontWeight.bold,
-                //       color: Colors.blue),
-                // ),
                 SizedBox(
                   height: 4,
                 ),
@@ -89,6 +80,13 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty || !RegExp(r'[0-9]').hasMatch(value)) {
+                      return "Enter valid  Student ID";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -105,6 +103,14 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
+                      return "Enter valid Program Name";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -121,6 +127,14 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
+                      return "Enter valid name";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -137,6 +151,14 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
+                      return "Enter valid name";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -153,6 +175,14 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
+                      return "Enter valid name";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -169,6 +199,14 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
+                      return "Enter valid address";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -180,11 +218,20 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderSide: BorderSide(color: Colors.blueGrey),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    labelText: "Date of Birth",
+                    labelText: "Date of Birth: dd/mm/yyyy",
                     labelStyle: TextStyle(color: Colors.blueGrey),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$')
+                            .hasMatch(value)) {
+                      return "Enter valid Date of Birth";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -201,6 +248,16 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  //r'^[+]*[(]{0,1}[0,9]{1,4}[)]{0,1}[-\s\./0-9]+$'
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^[+]*[(]{0,1}[0,9]{1,4}[)]{0,1}[-\s\./0-9]+$')
+                            .hasMatch(value)) {
+                      return "Enter valid Phone Number";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -217,6 +274,15 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                            .hasMatch(value)) {
+                      return "Enter valid email address";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -233,6 +299,14 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty ||
+                        !RegExp(r'^[a-z A-Z]+$').hasMatch(value)) {
+                      return "Enter valid name";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -249,6 +323,13 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty || !RegExp(r'^[0-9]').hasMatch(value)) {
+                      return "Enter valid Registration Number";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -265,6 +346,13 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty || !RegExp(r'^[0-9]').hasMatch(value)) {
+                      return "Enter valid result";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
@@ -281,12 +369,26 @@ class _AdmissionPageState extends State<AdmissionPage> {
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
+                  validator: (value) {
+                    if (value!.isEmpty || !RegExp(r'^[0-9]').hasMatch(value)) {
+                      return "Enter valid result";
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 4,
                 ),
                 ElevatedButton(
                   onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Processing Data')),
+                      );
+                    } else {
+                      return null;
+                    }
                     _firebaseServices
                         .addAddmissionRegistration(
                       reffererId: _reffererController.text,

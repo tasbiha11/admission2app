@@ -65,30 +65,30 @@ class _ConfirmedRegistrationState extends State<ConfirmedRegistration> {
               //   width: 235,
               //   color: Colors.green,
               // ),
-              Text(
-                "  10 Points Added To Your Profile !  ",
-                style: TextStyle(
-                    fontSize: 20,
-                    backgroundColor: Colors.green,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                "Tap to view",
-                style: TextStyle(fontSize: 20),
-              ),
+              // Text(
+              //   "  10 Points Added To Your Profile !  ",
+              //   style: TextStyle(
+              //       fontSize: 20,
+              //       backgroundColor: Colors.green,
+              //       color: Colors.white,
+              //       fontWeight: FontWeight.bold),
+              // ),
+              // SizedBox(
+              //   height: 20,
+              // ),
+              // Text(
+              //   "Tap to view",
+              //   style: TextStyle(fontSize: 20),
+              // ),
 
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RewardPoints()));
-                  },
-                  child: Text(" Reward Points"))
+              // ElevatedButton(
+              //     onPressed: () {
+              //       Navigator.push(
+              //           context,
+              //           MaterialPageRoute(
+              //               builder: (context) => RewardPoints()));
+              //     },
+              //     child: Text(" Reward Points"))
             ],
           )),
     );

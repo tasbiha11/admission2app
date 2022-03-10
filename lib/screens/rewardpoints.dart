@@ -36,14 +36,14 @@ class _RewardPointsState extends State<RewardPoints> {
             SizedBox(
               height: 20,
             ),
-            Text(
-              "  Total Reward Points: 10  ",
-              style: TextStyle(
-                  fontSize: 30,
-                  backgroundColor: Colors.green,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
+            // Text(
+            //   "  Total Reward Points: 10  ",
+            //   style: TextStyle(
+            //       fontSize: 30,
+            //       backgroundColor: Colors.green,
+            //       color: Colors.white,
+            //       fontWeight: FontWeight.bold),
+            // ),
             // FloatingActionButton(
             //   child: Icon(Icons.add),
             //   onPressed: _incrementCount,
@@ -60,14 +60,26 @@ class _RewardPointsState extends State<RewardPoints> {
               //color: Colors.black,
               child: ListView(
                 children: const <Widget>[
+                  // ListTile(
+                  //   leading: Icon(Icons.arrow_forward_ios_outlined),
+                  //   title: Text(
+                  //     'With Every Semester Registration Through this App you get 10 points added to your profile',
+                  //     style:
+                  //         TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  //   ),
+                  // ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   ListTile(
                     leading: Icon(Icons.arrow_forward_ios_outlined),
                     title: Text(
-                      'With Every Semester Registration Through this App you get 10 points added to your profile',
+                      'You can collect reward points by becoming a refferer to a new student during admission',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                   ),
+
                   SizedBox(
                     height: 10,
                   ),
@@ -85,18 +97,7 @@ class _RewardPointsState extends State<RewardPoints> {
                   ListTile(
                     leading: Icon(Icons.arrow_forward_ios_outlined),
                     title: Text(
-                      'You can also collect reward points by becoming a refferer to a new student during admission',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.arrow_forward_ios_outlined),
-                    title: Text(
-                      'A refferer gets 30 reward points added to their profile',
+                      'A refferer gets 20 reward points added to their profile',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),

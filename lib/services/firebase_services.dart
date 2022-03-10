@@ -3,14 +3,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class FirebaseServices {
   final databaseRef = FirebaseFirestore.instance;
   Future<void> addSemisterRegistration({
-    required String referenceNo,
     required String programName,
     required String studentId,
     required String section,
     required String semister,
   }) async {
     Map<String, dynamic> data = <String, dynamic>{
-      'referenceNo': referenceNo,
       'programName': programName,
       'studentId': studentId,
       'section': section,

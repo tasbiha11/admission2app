@@ -56,7 +56,7 @@ class _AdmissionConfirmationState extends State<AdmissionConfirmation> {
               color: Colors.amber,
               padding: EdgeInsets.all(10),
               child: Text(
-                "30 points added to Refferer's ID",
+                "20 points added to Refferer's ID",
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
