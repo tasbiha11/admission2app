@@ -74,7 +74,8 @@ class _SemesterRegistrationState extends State<SemesterRegistration> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       labelText: "Program Name",
-                      labelStyle: TextStyle(color: Colors.blueGrey),
+                      labelStyle:
+                          TextStyle(color: Colors.blueGrey, fontSize: 22),
                       filled: true,
                       fillColor: Colors.blueGrey[100],
                     ),
@@ -99,16 +100,18 @@ class _SemesterRegistrationState extends State<SemesterRegistration> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       labelText: "Student ID",
-                      labelStyle: TextStyle(color: Colors.blueGrey),
+                      labelStyle:
+                          TextStyle(color: Colors.blueGrey, fontSize: 22),
                       filled: true,
                       fillColor: Colors.blueGrey[100],
                     ),
                     validator: (value) {
-                      if (value!.isEmpty || !RegExp(r'[0-9]').hasMatch(value)) {
-                        return "Enter valid  Student ID";
-                      } else {
-                        return null;
+                      if (value == null || !RegExp(r'[0-9]').hasMatch(value)) {
+                        return 'Please enter valid ID';
+                      } else if (value.length != 10) {
+                        return 'ID should be 10 digits';
                       }
+                      return null;
                     },
                   ),
                   SizedBox(
@@ -122,7 +125,8 @@ class _SemesterRegistrationState extends State<SemesterRegistration> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                       labelText: "Section",
-                      labelStyle: TextStyle(color: Colors.blueGrey),
+                      labelStyle:
+                          TextStyle(color: Colors.blueGrey, fontSize: 22),
                       filled: true,
                       fillColor: Colors.blueGrey[100],
                     ),

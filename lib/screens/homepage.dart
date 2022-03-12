@@ -53,16 +53,6 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Container(
-                    //   height: 80,
-                    //   width: 80,
-                    //   decoration: BoxDecoration(
-                    //       borderRadius: BorderRadius.circular(40),
-                    //       color: Colors.white),
-                    //   child: Center(
-                    //     child: Text("User"),
-                    //   ),
-                    // ),
                     SizedBox(
                       height: 35,
                     ),
@@ -70,9 +60,7 @@ class HomePage extends StatelessWidget {
                       //margin: EdgeInsets.only(left: 55),
                       width: 300,
                       height: 50,
-                      decoration: BoxDecoration(
-                          //borderRadius: BorderRadius.circular(0),
-                          color: Colors.blueGrey),
+                      decoration: BoxDecoration(color: Colors.blueGrey),
                       child: ListTile(
                         onTap: () {
                           Navigator.push(
@@ -177,25 +165,13 @@ class HomePage extends StatelessWidget {
                               height: 100,
                               child: Row(
                                 children: [
-                                  // CircleAvatar(
-                                  //   maxRadius: 30,
-                                  //   backgroundImage:
-                                  //       AssetImage("images/verified_user.png"),
-                                  // ),
-                                  // SizedBox(
-                                  //   height: 5,
-                                  // ),
                                   Image.asset(
                                     "images/Leading_University_Logo.png",
                                     width: 80,
                                   ),
                                   Container(
-                                    // padding: EdgeInsets.symmetric(
-                                    //     vertical: 10),
-                                    // padding: EdgeInsets.all(10),
                                     height: 50,
                                     width: 200,
-                                    //color: Colors.black,
                                     child: ListTile(
                                       title: Text(
                                         "Leading University",
@@ -261,7 +237,6 @@ class HomePage extends StatelessWidget {
                         Expanded(
                           child: Container(
                             height: 200,
-                            //color: Colors.black,
                             child: Column(
                               children: [
                                 Container(
@@ -366,10 +341,6 @@ class HomePage extends StatelessWidget {
                         "Ragibnagar, South Surma, Sylhet-3112",
                         style: TextStyle(color: Colors.white),
                       ),
-                      // Text(
-                      //   "Phone: 01313084499.",
-                      //   style: TextStyle(color: Colors.white),
-                      // ),
                       Text(
                         "Email: info@lus.ac.bd",
                         style: TextStyle(color: Colors.white),
@@ -383,8 +354,3 @@ class HomePage extends StatelessWidget {
         ));
   }
 }
-
-//Leading University
-// Ragibnagar, South Surma, Sylhet-3112
-// Phone: 01313084499.
-// Email: info@lus.ac.bd

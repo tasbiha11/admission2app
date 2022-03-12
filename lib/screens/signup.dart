@@ -2,7 +2,6 @@ import 'package:admission2app/screens/homepage.dart';
 import 'package:admission2app/screens/login.dart';
 import 'package:admission2app/widgets/haveaccount.dart';
 import 'package:admission2app/widgets/mybutton.dart';
-import 'package:admission2app/widgets/mypasswordtextformfield.dart';
 import 'package:admission2app/widgets/mytextformfield.dart';
 import 'package:admission2app/widgets/toptitle.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -113,39 +112,117 @@ class _SignUpState extends State<SignUp> {
     });
   }
 
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffold,
       resizeToAvoidBottomInset: true,
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 1),
-        child: ListView(
-          children: [
-            Column(
+      body: ListView(
+        padding: EdgeInsets.symmetric(
+          horizontal: 10,
+        ),
+        children: [
+          Form(
+            key: _formKey,
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                SizedBox(
+                  height: 10,
+                ),
                 TopTitle(
                     title: "SignUp", subTitle: "For LU Admission Assistance"),
-                Container(
-                  height: 400,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      MyTextFormField(controller: name, title: "Name"),
-                      MyTextFormField(controller: email, title: "Email"),
-                      MyTextFormField(controller: phone, title: "Phone"),
-                      MyTextFormField(controller: hsc, title: "HSC"),
-                      MyPasswordTextFormField(
-                          controller: password, title: "Password"),
-                    ],
-                  ),
+                Column(
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    MyTextFormField(
+                      controller: name,
+                      title: "Name",
+                      validator: (value) {
+                        if (value == null ||
+                            !RegExp(r'^[a-z A-Z]').hasMatch(value)) {
+                          return 'Please enter a valid name';
+                        } else if (value.length < 2) {
+                          return 'Enter Full Name';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 10),
+                    MyTextFormField(
+                      controller: email,
+                      title: "Email",
+                      type: TextInputType.emailAddress,
+                      validator: (value) {
+                        String pattern =
+                            r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+                            r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+                            r"{0,253}[a-zA-Z0-9])?)*$";
+                        RegExp regex = RegExp(pattern);
+                        if (value == null ||
+                            value.isEmpty ||
+                            !regex.hasMatch(value)) {
+                          return 'Please Enter a valid email address';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 10),
+                    MyTextFormField(
+                      controller: phone,
+                      title: "Phone",
+                      type: TextInputType.phone,
+                      validator: (value) {
+                        if (value == null ||
+                            !RegExp(r'[0-9]').hasMatch(value)) {
+                          return 'Please enter phone number';
+                        } else if (value.length != 11) {
+                          return 'Phone should be 11 digits';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 10),
+                    MyTextFormField(
+                      controller: hsc,
+                      title: "HSC",
+                      validator: (value) {
+                        if (value == null ||
+                            !RegExp(r'[0-9]').hasMatch(value)) {
+                          return 'Please enter name';
+                        } else if (value.length > 4) {
+                          return 'Enter valid year';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 10),
+                    MyTextFormField(
+                      controller: password,
+                      title: "Password",
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter password';
+                        } else if (value.length < 2) {
+                          return 'Password should be at least 8 characters long';
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
                 ),
+                SizedBox(height: 10),
                 isLoading == false
                     ? MyButton(
                         name: "Sign Up",
                         onPressed: () {
-                          validation(context);
+                          if (_formKey.currentState!.validate()) {
+                            validation(context);
+                          }
                         },
                       )
                     : Center(
@@ -167,8 +244,8 @@ class _SignUpState extends State<SignUp> {
                     title: "Already have an Account")
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

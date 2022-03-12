@@ -6,7 +6,7 @@ class TopTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 100,
       width: 400,
       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
       color: Colors.blueGrey,
@@ -15,16 +15,16 @@ class TopTitle extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 15,
-              //fontWeight: FontWeight.bold,
+              fontSize: 30,
               color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
           Text(
             subTitle,
             style: TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              // fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
           )

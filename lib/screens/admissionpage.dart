@@ -63,7 +63,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
               children: [
                 Image.asset(
                   "images/Leading_University_Logo.png",
-                  width: 100,
+                  width: 120,
                 ),
                 SizedBox(
                   height: 4,
@@ -76,20 +76,21 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "Refferer ID",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
                   validator: (value) {
-                    if (value!.isEmpty || !RegExp(r'[0-9]').hasMatch(value)) {
-                      return "Enter valid  Student ID";
-                    } else {
-                      return null;
+                    if (value == null || !RegExp(r'[0-9]').hasMatch(value)) {
+                      return 'Please enter valid ID';
+                    } else if (value.length != 10) {
+                      return 'ID should be 10 digits';
                     }
+                    return null;
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _programNameController,
@@ -99,7 +100,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "Program Name",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
@@ -113,7 +114,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _applicantNameController,
@@ -123,7 +124,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "Applicant Name",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
@@ -137,7 +138,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _fathersNameOccupationController,
@@ -147,7 +148,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "Fathers name and Occupation",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
@@ -161,7 +162,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _mothersNameOccupationController,
@@ -171,7 +172,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "Mothers name and Occupation",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
@@ -185,7 +186,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _addressController,
@@ -195,7 +196,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "Address",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
@@ -209,7 +210,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _birthDateController,
@@ -219,7 +220,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "Date of Birth: dd/mm/yyyy",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
@@ -234,7 +235,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _mobileController,
@@ -244,23 +245,21 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "Mobile",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
-                  //r'^[+]*[(]{0,1}[0,9]{1,4}[)]{0,1}[-\s\./0-9]+$'
                   validator: (value) {
-                    if (value!.isEmpty ||
-                        !RegExp(r'^[+]*[(]{0,1}[0,9]{1,4}[)]{0,1}[-\s\./0-9]+$')
-                            .hasMatch(value)) {
-                      return "Enter valid Phone Number";
-                    } else {
-                      return null;
+                    if (value == null || !RegExp(r'[0-9]').hasMatch(value)) {
+                      return 'Please enter phone number';
+                    } else if (value.length != 11) {
+                      return 'Phone should be 11 digits';
                     }
+                    return null;
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _emailController,
@@ -270,7 +269,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "Email",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
@@ -285,7 +284,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _nationalityController,
@@ -295,7 +294,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "Nationality",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
@@ -309,7 +308,7 @@ class _AdmissionPageState extends State<AdmissionPage> {
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _hscRegNoController,
@@ -319,20 +318,21 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "HSC Registration No.",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
                   validator: (value) {
-                    if (value!.isEmpty || !RegExp(r'^[0-9]').hasMatch(value)) {
-                      return "Enter valid Registration Number";
-                    } else {
-                      return null;
+                    if (value == null || !RegExp(r'[0-9]').hasMatch(value)) {
+                      return 'Please enter registration number';
+                    } else if (value.length != 12) {
+                      return 'Registration number must be 11 digits';
                     }
+                    return null;
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _hscGPAController,
@@ -342,20 +342,19 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "HSC GPA",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
                   validator: (value) {
-                    if (value!.isEmpty || !RegExp(r'^[0-9]').hasMatch(value)) {
-                      return "Enter valid result";
-                    } else {
-                      return null;
+                    if (value == null || !RegExp(r'[0-9]').hasMatch(value)) {
+                      return 'Please enter result';
                     }
+                    return null;
                   },
                 ),
                 SizedBox(
-                  height: 4,
+                  height: 10,
                 ),
                 TextFormField(
                   controller: _sscGPAController,
@@ -365,16 +364,15 @@ class _AdmissionPageState extends State<AdmissionPage> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     labelText: "SSC GPA",
-                    labelStyle: TextStyle(color: Colors.blueGrey),
+                    labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 22),
                     filled: true,
                     fillColor: Colors.blueGrey[100],
                   ),
                   validator: (value) {
-                    if (value!.isEmpty || !RegExp(r'^[0-9]').hasMatch(value)) {
-                      return "Enter valid result";
-                    } else {
-                      return null;
+                    if (value == null || !RegExp(r'[0-9]').hasMatch(value)) {
+                      return 'Please enter result';
                     }
+                    return null;
                   },
                 ),
                 SizedBox(
