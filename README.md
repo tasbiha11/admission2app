@@ -1,16 +1,12 @@
-# admission2app
+# LU_Admission_Assistance
 
-A new Flutter project.
+![login](https://user-images.githubusercontent.com/86628613/177922200-cdb8cd1b-01a1-47d4-b44a-834ed36b8466.png)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+![signup](https://user-images.githubusercontent.com/86628613/177922271-274aa352-ba45-49c3-bf76-01faa94a35c9.png)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![semester](https://user-images.githubusercontent.com/86628613/177922278-60d69567-5c25-4561-a0c7-8be35aa37f60.png)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+![aboutus](https://user-images.githubusercontent.com/86628613/177922291-8d034252-482a-4f29-bafb-92f042e947d9.png)
